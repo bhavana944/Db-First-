@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BhavanaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Bhavana.dbo.StudentDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StudentDetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="studentName" Type="varchar" MaxLength="20" />
+          <Property Name="gender" Type="varchar" MaxLength="20" />
+          <Property Name="standard" Type="varchar" MaxLength="80" />
+          <Property Name="section" Type="varchar" MaxLength="20" />
+          <Property Name="hobbies" Type="varchar" MaxLength="80" />
+          <Property Name="subjects" Type="varchar" MaxLength="20" />
+          <Property Name="marks1" Type="int" />
+          <Property Name="marks2" Type="int" />
+          <Property Name="marks3" Type="int" />
+          <Property Name="total" Type="bigint" />
+        </EntityType>
+        <EntityContainer Name="BhavanaModelStoreContainer">
+          <EntitySet Name="StudentDetails" EntityType="Self.StudentDetails" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StudentDetails].[id] AS [id], 
+    [StudentDetails].[studentName] AS [studentName], 
+    [StudentDetails].[gender] AS [gender], 
+    [StudentDetails].[standard] AS [standard], 
+    [StudentDetails].[section] AS [section], 
+    [StudentDetails].[hobbies] AS [hobbies], 
+    [StudentDetails].[subjects] AS [subjects], 
+    [StudentDetails].[marks1] AS [marks1], 
+    [StudentDetails].[marks2] AS [marks2], 
+    [StudentDetails].[marks3] AS [marks3], 
+    [StudentDetails].[total] AS [total]
+    FROM [dbo].[StudentDetails] AS [StudentDetails]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BhavanaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="StudentDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="studentName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="standard" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="section" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="hobbies" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="subjects" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="marks1" Type="Int32" />
+          <Property Name="marks2" Type="Int32" />
+          <Property Name="marks3" Type="Int32" />
+          <Property Name="total" Type="Int64" />
+        </EntityType>
+        <EntityContainer Name="BhavanaEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="StudentDetails" EntityType="Self.StudentDetail" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BhavanaModelStoreContainer" CdmEntityContainer="BhavanaEntities1">
+          <EntitySetMapping Name="StudentDetails">
+            <EntityTypeMapping TypeName="BhavanaModel.StudentDetail">
+              <MappingFragment StoreEntitySet="StudentDetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="studentName" ColumnName="studentName" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="standard" ColumnName="standard" />
+                <ScalarProperty Name="section" ColumnName="section" />
+                <ScalarProperty Name="hobbies" ColumnName="hobbies" />
+                <ScalarProperty Name="subjects" ColumnName="subjects" />
+                <ScalarProperty Name="marks1" ColumnName="marks1" />
+                <ScalarProperty Name="marks2" ColumnName="marks2" />
+                <ScalarProperty Name="marks3" ColumnName="marks3" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
